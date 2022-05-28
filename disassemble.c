@@ -91,7 +91,7 @@ void execBranch(unsigned int op, unsigned int rs, unsigned int rt, int offset)
 void execJump(unsigned int op, unsigned int offset)
 {
     printf("%s 0x%08X\n", instName[op], offset << 2); // print shifted offset
-    PC = ALU(ADD, PC, offset << 2);
+    PC = offset << 2;
 }
 
 void execLoadStore(unsigned int op, unsigned int rt, unsigned int rs, int offset)
