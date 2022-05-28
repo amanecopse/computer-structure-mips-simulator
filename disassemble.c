@@ -26,6 +26,7 @@ void execJr(unsigned int op, unsigned int rs)
 void execSyscall(unsigned int op)
 {
     printf("%s\n", instName[op]);
+    PC = 0; // PC값이 0일 때 프로그램이 끝났거나 로드되지 않은 상태인 것으로 한다.
 }
 
 void execMfHiLo(unsigned int op, unsigned int rd)
