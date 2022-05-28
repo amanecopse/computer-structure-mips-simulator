@@ -10,9 +10,13 @@ void decodeRtype(unsigned int fct);
 
 void step(void)
 {
+    if (PC == 0)
+    {
+        printf("프로그램 로드 후 진행하세요.\n");
+        return;
+    }
     // instruction fetch
-    // IR = MEM(PC, 0, 0, 2);
-    IR.I = 0xAC620014; // 테스트 명령어 1010_1100_0110_0010_0000_0000_0001_0100
+    IR.I = MEM(PC, 0, 0, 2);
     PC += 4;
 
     // instruction decode
