@@ -91,6 +91,8 @@ void execBranch(unsigned int op, unsigned int rs, unsigned int rt, int offset)
 void execJump(unsigned int op, unsigned int offset)
 {
     printf("%s 0x%08X\n", instName[op], offset << 2); // print shifted offset
+    if (op == JAL)                                    // JAL이면 $ra에 다음 명령어의 PC를 저장해야한다.
+        REG(31, PC, ACCESS_WRITE);
     PC = offset << 2;
 }
 
